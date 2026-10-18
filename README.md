@@ -1,11 +1,109 @@
-<div align="center">
+# Tug of War: CV & Job Interview Challenge
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+**Nannestad High School — Barbara Anna Zielonka**
 
-  <h1>Built with AI Studio</h2>
+An interactive, curriculum-aligned classroom arena designed for high school career readiness, CV writing, the STAR interview method, and professional etiquette. Built with React 19, TypeScript, Tailwind CSS, Web Audio API, and Vite.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+---
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## 🚀 Quick Start (Local Development)
 
-</div>
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run local development server
+npm run dev
+
+# 3. Build for production
+npm run build
+
+# 4. Preview production build
+npm run preview
+```
+
+---
+
+## 📦 How to Export to GitHub
+
+Follow these quick steps in your terminal to publish the project to GitHub:
+
+### Step 1: Initialize Git and Commit
+```bash
+# Initialize git repository (if not already initialized)
+git init
+
+# Add all files (gitignore already excludes node_modules and temp files)
+git add .
+
+# Create the initial commit
+git commit -m "Initial commit: Tug of War CV & Job Interview Challenge"
+```
+
+### Step 2: Push to GitHub
+1. Go to [GitHub](https://github.com/new) and create a new repository (e.g. `tug-of-war-careers`).
+2. Run the following commands in your project root (replace `<your-username>` with your GitHub username):
+
+```bash
+git branch -M main
+git remote add origin https://github.com/<your-username>/tug-of-war-careers.git
+git push -u origin main
+```
+
+---
+
+## ⚡ How to Deploy to Cloudflare Pages
+
+Cloudflare Pages provides blazing-fast, free global hosting with automatic SSL and zero server maintenance.
+
+### Method 1: Git-Connected Deployment (Recommended)
+Every time you push to your GitHub `main` branch, Cloudflare will automatically build and deploy the latest version!
+
+1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
+2. In the left sidebar, navigate to **Compute (Workers & Pages)** > **Pages** (or **Workers & Pages** > **Create application** > **Pages**).
+3. Click **Connect to Git** and choose your GitHub account.
+4. Select your repository: `tug-of-war-careers`.
+5. In the **Build configuration** section, enter:
+   - **Framework preset**: `Vite`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+   - **Root directory**: `/` (leave default)
+6. Click **Save and Deploy**.
+
+> **Note:** The repository already includes `.nvmrc` (Node 20 LTS) and `public/_redirects` (`/* /index.html 200`) so Cloudflare Pages handles SPA routing and builds out of the box with zero errors.
+
+---
+
+### Method 2: Direct CLI Deployment (Wrangler)
+If you prefer deploying directly from your computer without connecting to Git:
+
+```bash
+# 1. Build the production bundle
+npm run build
+
+# 2. Deploy the 'dist' directory to Cloudflare Pages
+npx wrangler pages deploy dist --project-name=tug-of-war-careers
+```
+
+Wrangler will prompt you to log into Cloudflare once and immediately give you a live production URL (e.g. `https://tug-of-war-careers.pages.dev`).
+
+---
+
+## 🛠 Project Architecture
+
+- `src/App.tsx`: Main game loop, turn handover, timer orchestration, keyboard navigation.
+- `src/components/ArenaRope.tsx`: Animated braided rope with dynamic tension and physics knot markers.
+- `src/components/TeamCard.tsx`: Team scores, streak multipliers, and customizable team names.
+- `src/components/QuestionCard.tsx`: Question engine supporting Multiple Choice and Open-ended Teacher Rubric evaluation.
+- `src/components/TeacherHubModal.tsx`: Teacher control deck, live knot tuning, and custom JSON question bank import/export.
+- `src/components/StudyGuideModal.tsx`: Projectable & printable CV cheat-sheet and STAR method guide.
+- `src/components/VictoryModal.tsx`: Confetti celebration and match summary.
+- `src/data/defaultQuestions.ts`: 25+ career readiness, ATS, and interview scenarios.
+- `src/utils/sound.ts`: 100% synthesized Web Audio API sound effects (no external broken audio dependencies).
+- `public/_redirects`: Cloudflare Pages SPA redirection rule.
+- `.nvmrc`: Node 20 LTS configuration.
+
+---
+
+## 📄 Attribution & License
+Created for educational use at **Nannestad High School — Barbara Anna Zielonka**.
