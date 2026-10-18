@@ -87,8 +87,8 @@ Wrangler will prompt you to log into Cloudflare once and immediately give you a 
 - `src/components/VictoryModal.tsx`: Confetti celebration and match summary.
 - `src/data/defaultQuestions.ts`: 25+ career readiness, ATS, and interview scenarios.
 - `src/utils/sound.ts`: 100% synthesized Web Audio API sound effects (no external broken audio dependencies).
-- `public/_redirects`: Cloudflare Pages SPA redirection rule.
-- `.nvmrc`: Node 20 LTS configuration.
+- `wrangler.jsonc`: Cloudflare Workers & Static Assets configuration.
+- `.nvmrc`: Node 22 LTS configuration.
 
 ---
 
