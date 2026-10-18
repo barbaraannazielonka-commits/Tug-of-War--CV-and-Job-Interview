@@ -52,30 +52,17 @@ git push -u origin main
 
 ---
 
-## ⚡ How to Deploy to Cloudflare Pages
+## ⚡ How to Deploy to Cloudflare Workers (or Pages)
 
-Cloudflare Pages provides blazing-fast, free global hosting with automatic SSL and zero server maintenance.
+### Cloudflare Workers CI (Builds with Static Assets)
+The repository is fully configured with `wrangler.jsonc` pointing directly to `./dist` with `"not_found_handling": "single-page-application"` and latest `wrangler` in `devDependencies`:
 
-### Method 1: Git-Connected Deployment (Recommended)
-Every time you push to your GitHub `main` branch, Cloudflare will automatically build and deploy the latest version!
+- **Build command**: `npm run build`
+- **Deploy command**: `npx wrangler@latest deploy` (or `npx wrangler deploy`)
+- **Root directory**: `/`
+- **Static Assets Directory**: `./dist` (configured in `wrangler.jsonc`)
 
-1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. In the left sidebar, navigate to **Compute (Workers & Pages)** > **Pages** (or **Workers & Pages** > **Create application** > **Pages**).
-3. Click **Connect to Git** and choose your GitHub account.
-4. Select your repository: `tug-of-war-careers`.
-5. In the **Build configuration** section, enter:
-   - **Framework preset**: `Vite`
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-   - **Root directory**: `/` (leave default)
-6. Click **Save and Deploy**.
-
-> **Note:** The repository already includes `.nvmrc` (Node 20 LTS) and `public/_redirects` (`/* /index.html 200`) so Cloudflare Pages handles SPA routing and builds out of the box with zero errors.
-
----
-
-### Method 2: Direct CLI Deployment (Wrangler)
-If you prefer deploying directly from your computer without connecting to Git:
+The presence of `wrangler.jsonc` and `wrangler` in `devDependencies` guarantees that Cloudflare Workers CI skips all interactive prompts and builds cleanly without npm crashes.
 
 ```bash
 # 1. Build the production bundle

@@ -2,5 +2,7 @@
   "name": "Tug of War: CV & Job Interview Challenge",
   "description": "Interactive competitive classroom arena for career readiness, CV writing, STAR method, and job interview prep.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
