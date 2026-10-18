@@ -8,3 +8,4 @@ coverage/
 !.env.example
 .aistudio/
 .wrangler/
+bun.lock*
